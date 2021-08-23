@@ -1,11 +1,12 @@
 local M = {}
-local visualConfig = {
-}
+local visualConfig = {}
 local insertConfig = {
-    {from = "jk", to = "<Esc>"}
+  {from = "jk", to = "<Esc>"},
+  {from = "<tab>", to = "v:lua.tab_complete()", options = {expr = true, silent = true}},
+  {from = "<s-tab>", to = "v:lua.s_tab_complete()", options = {expr = true, silent = true}}
 }
 local normalConfig = {
-  {from = "ql", to = "<cmd>Neoformat<CR>"}
+  {from = "ql", to = "<cmd>FormatWrite<CR>"}
 }
 
 function M.init_maps()

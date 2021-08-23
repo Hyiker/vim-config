@@ -4,12 +4,16 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
+Plug 'hrsh7th/nvim-compe'
+Plug 'glepnir/lspsaga.nvim'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'tzachar/compe-tabnine', { 'do': './install.sh' }
 Plug 'glepnir/lspsaga.nvim'
 
 Plug 'luochen1990/rainbow'
 
-Plug 'sbdchd/neoformat'
+Plug 'mhartington/formatter.nvim'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
@@ -23,29 +27,24 @@ Plug 'vim-airline/vim-airline-themes'
 
 Plug 'Yggdroot/indentLine'
 
-Plug 'arcticicestudio/nord-vim'
+Plug 'morhetz/gruvbox'
 
 Plug 'preservim/nerdcommenter'
 
 Plug 'airblade/vim-gitgutter'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'TimUntersberger/neogit'
 
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
-" Initialize plugin system
+
+Plug 'sainnhe/sonokai'
+
+
 call plug#end()
 
 lua require("global")
 
-autocmd BufEnter * lua require'completion'.on_attach()
-" Use <Tab> and <S-Tab> to navigate through popup menu
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" Set completeopt to have a better completion experience
-set completeopt=menuone,noinsert,noselect
-
-" Avoid showing message extra message when using completion
-set shortmess+=c
 
 set relativenumber " 设置显示相对行号
 set number " 设置显示行号
@@ -55,6 +54,7 @@ set shiftwidth=2 " 自动缩进的宽度
 set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936 " 解决中文乱码
 set termencoding=utf-8
 set encoding=utf-8
+set shortmess+=c
 
 syntax on
 
@@ -65,7 +65,8 @@ filetype plugin on
 " 自适应不同语言的智能缩进
 filetype indent on
 
-let g:airline_theme = 'nord' " 设置airline使用的主题
+let g:completion_enable_snippet = 'snippets.nvim'
+let g:airline_theme = 'gruvbox' " 设置airline使用的主题
 let g:airline_powerline_fonts = 1 " 使airline正常显示箭头
 
 " 设置 neovim 或者 vim 的 tabline
@@ -83,17 +84,10 @@ let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:nvim_tree_side = 'left'
 let g:nvim_tree_ignore = [ '.git', 'node_modules', '.cache' ]
 let g:nvim_tree_auto_open = 1 
-let g:nvim_tree_auto_close = 1 
+let g:nvim_tree_auto_close = 1
+let g:nvim_tree_follow = 1
 
-" custom setting for clangformat
-let g:neoformat_cpp_clangformat = {
-    \ 'exe': 'clang-format',
-    \ 'args': ['--style="Google"']
-\}
-let g:neoformat_enabled_cpp = ['clangformat']
-let g:neoformat_enabled_c = ['clangformat']
-
-colorscheme nord
+colorscheme gruvbox
 
 if has("autocmd")
   " Highlight TODO, FIXME, NOTE, etc.
