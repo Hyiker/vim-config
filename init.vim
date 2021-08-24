@@ -40,7 +40,7 @@ Plug 'kyazdani42/nvim-tree.lua'
 
 Plug 'sainnhe/sonokai'
 
-
+Plug 'wakatime/vim-wakatime'
 call plug#end()
 
 lua require("global")
