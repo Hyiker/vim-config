@@ -34,6 +34,7 @@ _G.s_tab_complete = function()
   end
 end
 
+require("nvimtree_config")
 require("lsp_config")
 require("treesitter")
 require("fmt_config")

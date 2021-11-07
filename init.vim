@@ -85,11 +85,6 @@ let g:airline#extensions#tabline#fnamecollapse = 2
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 
 
-let g:nvim_tree_side = 'left'
-let g:nvim_tree_ignore = [ '.git', 'node_modules', '.cache' ]
-let g:nvim_tree_auto_open = 1 
-let g:nvim_tree_auto_close = 1
-let g:nvim_tree_follow = 1
 "
 "*****************   gutentags   *************************************
 let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project'] " gutentags 搜索工程目录的标志, 当前文件路径向上递归直到碰到这些文件 / 目录名
