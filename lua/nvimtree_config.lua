@@ -1,14 +1,17 @@
-require "nvim-tree".setup {
+require("nvim-tree").setup {
+  actions = {
+    open_file = {
+      resize_window = true
+    }
+  },
   disable_netrw = true,
   hijack_netrw = true,
   open_on_setup = false,
   ignore_ft_on_setup = {},
-  update_to_buf_dir = {
+  hijack_directories = {
     enable = true,
     auto_open = true
   },
-  auto_close = true,
-  follow = true,
   open_on_tab = false,
   hijack_cursor = false,
   update_cwd = false,
@@ -24,7 +27,7 @@ require "nvim-tree".setup {
   update_focused_file = {
     enable = false,
     update_cwd = false,
-    ignore_list = {".git", "node_modules", ".cache"}
+    ignore_list = { ".git", "node_modules", ".cache" }
   },
   system_open = {
     cmd = nil,
@@ -34,7 +37,6 @@ require "nvim-tree".setup {
     width = 30,
     height = 30,
     side = "left",
-    auto_resize = false,
     mappings = {
       custom_only = false,
       list = {}

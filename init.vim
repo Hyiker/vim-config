@@ -1,3 +1,5 @@
+if exists('g:vscode')
+else
 " Specify a directory for plugins
 " - For Neovim: stdpath('data') . '/plugged'
 " - Avoid using standard Vim directory names like 'plugin'
@@ -8,7 +10,6 @@ Plug 'hrsh7th/nvim-compe'
 Plug 'glepnir/lspsaga.nvim'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
-Plug 'tzachar/compe-tabnine', { 'do': './install.sh' }
 Plug 'glepnir/lspsaga.nvim'
 
 Plug 'luochen1990/rainbow'
@@ -39,8 +40,6 @@ Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
 
 Plug 'sainnhe/sonokai'
-
-Plug 'wakatime/vim-wakatime'
 
 Plug 'ludovicchabant/vim-gutentags'
 
@@ -119,3 +118,4 @@ command! WQ wq
 command! Wq wq
 command! W w
 command! Q q
+end
