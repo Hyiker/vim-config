@@ -1,20 +1,38 @@
+" global settings
+set clipboard=unnamedplus
+command! WQ wq
+command! Wq wq
+command! W w
+command! Q q
+
+set relativenumber " 设置显示相对行号
+set number " 设置显示行号
+set expandtab " 设置TAB使用空格
+set tabstop=2 " 设置TAB缩进的空格数量
+set shiftwidth=2 " 自动缩进的宽度
+
 if exists('g:vscode')
+" vscode settings
+
+lua require("global_vsc")
+
 else
+" nvim settings
 " Specify a directory for plugins
 " - For Neovim: stdpath('data') . '/plugged'
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
+Plug 'dstein64/vim-startuptime'
+
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
-Plug 'glepnir/lspsaga.nvim'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
 Plug 'glepnir/lspsaga.nvim'
 
 Plug 'luochen1990/rainbow'
 
-Plug 'mhartington/formatter.nvim'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
@@ -27,33 +45,33 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 Plug 'Yggdroot/indentLine'
-
 Plug 'morhetz/gruvbox'
-
 Plug 'preservim/nerdcommenter'
-
-Plug 'airblade/vim-gitgutter'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'TimUntersberger/neogit'
-
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
-
 Plug 'sainnhe/sonokai'
-
 Plug 'ludovicchabant/vim-gutentags'
 
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 call plug#end()
 
-lua require("global")
+let g:loaded_matchparen        = 1
+let g:loaded_matchit           = 1
+let g:loaded_logiPat           = 1
+let g:loaded_rrhelper          = 1
+let g:loaded_tarPlugin         = 1
+let g:loaded_gzip              = 1
+let g:loaded_zipPlugin         = 1
+let g:loaded_2html_plugin      = 1
+let g:loaded_shada_plugin      = 1
+let g:loaded_spellfile_plugin  = 1
+let g:loaded_netrw             = 1
+let g:loaded_netrwPlugin       = 1
+let g:loaded_tutor_mode_plugin = 1
+let g:loaded_remote_plugins    = 1
+
+lua require("global_nvim")
 
 
-set relativenumber " 设置显示相对行号
-set number " 设置显示行号
-set expandtab " 设置TAB使用空格
-set tabstop=2 " 设置TAB缩进的空格数量
-set shiftwidth=2 " 自动缩进的宽度
 set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936 " 解决中文乱码
 set termencoding=utf-8
 set encoding=utf-8
@@ -114,8 +132,4 @@ if has("autocmd")
   endif
 endif
 
-command! WQ wq
-command! Wq wq
-command! W w
-command! Q q
 end
